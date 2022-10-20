@@ -35,10 +35,7 @@ export const getWallet = async (
 	res: Response,
 ): Promise<Response> => {
 	try {
-		const getUser = await UserModel.findById(req.params.id).populate({
-			path: "wallet",
-			options: { createdAt: -1 },
-		});
+		const getUser = await WalletModel.findById(req.params.id);
 
 		return res.status(200).json({
 			message: "successfull",

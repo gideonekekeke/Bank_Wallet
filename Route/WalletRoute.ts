@@ -5,6 +5,7 @@ import {
 	getWallet,
 	createWalletTransaction,
 } from "../controllers/WalletController";
+import { createHistory } from "../controllers/HistoryController";
 
 router.route("/:id/create").post(createWallet);
 router.route("/:id").get(getWallet);
