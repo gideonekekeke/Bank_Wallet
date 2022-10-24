@@ -1,10 +1,13 @@
 import mongoose from "mongoose";
 
 interface User {
-	sentTo: string;
+	sentTo?: string;
 	recieviedForm: string;
 	amount: number;
+	transactionsReference: number;
 	transactionDescription: string;
+	availableBalance: number;
+	paymentType: string;
 	wallet: {};
 }
 
@@ -24,6 +27,18 @@ const historyModel = new mongoose.Schema(
 		},
 		transactionDescription: {
 			type: String,
+		},
+		paymentType: {
+			type: String,
+		},
+		transactionsReference: {
+			type: Number,
+		},
+		availableBalance: {
+			type: Number,
+		},
+		amount: {
+			type: Number,
 		},
 	},
 	{ timestamps: true },

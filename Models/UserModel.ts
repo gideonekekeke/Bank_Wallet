@@ -6,6 +6,10 @@ interface User {
 	email: string;
 	password: string;
 	accesstoken: number;
+	accountNumber: number;
+	verified: boolean;
+	verifiedToken: string;
+	token?: string;
 	followers: {}[];
 	following: {}[];
 	wallet: {}[];
@@ -31,6 +35,15 @@ const userModel = new mongoose.Schema(
 		},
 		accesstoken: {
 			type: Number,
+		},
+		accountNumber: {
+			type: Number,
+		},
+		verified: {
+			type: Boolean,
+		},
+		verifiedToken: {
+			type: String,
 		},
 		followers: [
 			{

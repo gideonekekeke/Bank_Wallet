@@ -36,7 +36,6 @@ export const getWallet = async (
 ): Promise<Response> => {
 	try {
 		const getUser = await WalletModel.findById(req.params.id);
-
 		return res.status(200).json({
 			message: "successfull",
 			data: getUser,
@@ -60,7 +59,8 @@ export const createWalletTransaction = async (
 		if (getUser?.accesstoken === token) {
 			if (myWallet?.totalBalance! <= 0 || amount > myWallet?.totalBalance!) {
 				return res.status(200).json({
-					message: "you have an insufficient amount to transfer",
+					message:
+						"Your account Balance is insufficient to complete this transaction",
 				});
 			} else {
 				await WalletModel.findByIdAndUpdate(

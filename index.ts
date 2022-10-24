@@ -1,5 +1,5 @@
 import express, { Response, Request, Application } from "express";
-const port: number = 5000;
+const port: number | string = process.env.PORT || 5000;
 import mongoose from "mongoose";
 const URL: string = "mongodb://localhost/AJwalletDB";
 import user from "./Route/UserRouter";
